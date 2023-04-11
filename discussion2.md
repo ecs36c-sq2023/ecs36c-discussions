@@ -285,14 +285,14 @@ what's wrong?
 
 The current list **maybe** empty, then what should it return?
 
-### Sum/union Type
-
 ```hs
 data Maybe a = Just a | Nothing
 ```
 
 If a operation may fail, 
 the return type of the function should be its desired type **or** nothing.
+
+---
 
 In out case, `removeHead()` should return Just a value of type `T` or nothing, 
 so
@@ -304,9 +304,18 @@ so
 std::optional<T> removeHead();
 ```
 
+---
+
+## Sum/union Type
+
 In general, viewing types as sets, 
 we can say a **union type** is the union of these types, 
 so a instance of the union type can be of any type in that union.
+
+```py
+def square(number: int | float) -> int | float:
+    return number ** 2
+```
 
 ---
 
