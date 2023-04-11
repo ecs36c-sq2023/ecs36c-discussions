@@ -127,7 +127,7 @@ $$
 
 ---
 
-### $\log_2 n \rightarrow \log n$?
+# $\log_2 n \rightarrow \log n$?
 
 ---
 
@@ -186,4 +186,177 @@ Thus the time complexity of quick sort cannot be $O(n)$.
 
 # Homework 1
 
-todo
+---
+
+### Linked List Node
+
+```cpp
+template <typename T>
+class LinkedListNode
+{
+private:
+  // make constructors and `_next` field only available to `LinkedList` class
+  // to avoid instantiating node and mutating `_next` outside `LinkedList` class.
+
+  template <typename U>
+  friend class LinkedList;
+
+  LinkedListNode<T> *_next;
+
+  explicit LinkedListNode(T value) : value(value), _next(nullptr) {}
+  LinkedListNode(T value, LinkedListNode<T> *next) : value(value), _next(next) {}
+
+public:
+  T value;
+  LinkedListNode<T> *next() { return _next; }
+};
+```
+
+this definition is provided in [lib/LinkedListNode.hpp](https://github.com/ecs36c-sq2023/hw1/blob/main/lib/LinkedListNode.hpp).
+
+---
+
+### Linked List Insert
+
+```
+Linked list:
+┌───┬───┐  ┌───┬───┐  ┌───┬───┐
+│ 1 │  ─┼─→│ 2 │  ─┼─→│ 3 │ │ │─→ nullptr
+└───┴───┘  └───┴───┘  └───┴───┘
+  ↑                       ↑
+  head                   tail
+```
+
+add a node 4 after node 2
+
+```
+  ┌───┬───┐  ┌───┬───┐            ┌─────┬───┐
+  │ 1 │  ─┼─→│ 2 │   │            │ 3   │ │ │─→ nullptr
+  └───┴───┘  └───┴───┘            └─┼───┴───┘
+    ↑              ↓                ↑    ↑
+   head            │                │   tail
+                   │                │
+                   └──→ ┌───┬───┐   │
+                        │ 4 │  ─┼───┘
+                        └───┴───┘ 
+```
+
+---
+
+### Linked List Remove
+
+deleting node
+
+```
+  ┌───┬───┐  ┌───┬───┐  2. new    ┌─────┬───┐
+  │ 1 │  ─┼─→│ 2 │   │  ──────→   │ 3   │ │ │─→ nullptr
+  └───┴───┘  └───┴───┘            └─┼───┴───┘
+    ↑              ↓                ↑    ↑
+   head            │                │   tail
+                   x                │
+                   └──→ ┌───┬───┐   │
+           1. temp ──→  │ 4 │  ─┼───┘
+                        └───┴───┘ 
+```
+
+what to do next?
+
+---
+
+### Remember to free your heap memory!
+
+```cpp
+delete temp;
+```
+
+---
+
+## `std::optional`
+
+```cpp
+/// @brief remove the first element from the list
+/// @return the value of head it just removed
+T removeHead();
+```
+
+what's wrong?
+
+---
+
+The current list **maybe** empty, then what should it return?
+
+### Sum/union Type
+
+```hs
+data Maybe a = Just a | Nothing
+```
+
+If a operation may fail, 
+the return type of the function should be its desired type **or** nothing.
+
+In out case, `removeHead()` should return Just a value of type `T` or nothing, 
+so
+
+```cpp
+/// @brief remove the first element from the list
+/// @return the removed element if there was at least one element in the list; 
+///         std::nullopt otherwise
+std::optional<T> removeHead();
+```
+
+In general, viewing types as sets, 
+we can say a **union type** is the union of these types, 
+so a instance of the union type can be of any type in that union.
+
+---
+
+What about `pop()/top()` function of stack?
+
+---
+
+## GoogleTest
+
+A unit testing framework for C++ (and other languages).
+
+running tests for `hw1`
+
+```bash
+> mkdir build
+> cd build
+> cmake ..
+> make
+> ./run_tests
+Running main() from /ECS36C/hw1/build/_deps/googletest-src/googletest/src/gtest_main.cc
+[----------] 1 test from QueueTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 24 tests from 3 test suites ran. (0 ms total)
+[  PASSED  ] 22 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] StackTest.BadTest
+[  FAILED  ] QueueTest.BadTest
+
+ 2 FAILED TESTS
+```
+
+---
+
+### Adding your new tests
+
+suppose adding a new test for linked list
+
+```cpp
+TEST(LinkedListTest, DoesSomething) {
+  // init the linked list
+  LinkedList<char> ll;
+  ...
+  ASSERT_EQ(do_something, its_rnt);
+  ASSERT_NE(do_something, what_it_should_not_be)
+  ...
+}
+```
+
+to test other things, 
+* change name of test suite (`LinkedListTest`)
+* init your object
+* assert its behaviors
