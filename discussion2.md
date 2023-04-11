@@ -174,9 +174,9 @@ $$
 & \implies \log n \leq  c - 1
 \end{aligned}
 $$
-Choose $n = 2^c$, then 
+Choose $n \geq 2^c$, then 
 $$
-\log_2 2^c = c \leq c - 1
+\log_2 2^c = c \leq \log_2 n \leq c - 1
 $$ 
 
 which is a contradiction.
