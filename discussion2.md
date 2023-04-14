@@ -48,7 +48,7 @@ In other words, $f(n)$ is $O(g(n))$ if $f(n) \leq cg(n)$ for some c and sufficie
 def factorial(x: Int) -> Int:
   if x == 1
     return 1
-  return x * factorial(x)
+  return x * factorial(x - 1)
 ```
 
 Calculating time bound for recursive algorithms
