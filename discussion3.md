@@ -40,20 +40,22 @@ A dynamic array is an array that can grow and shrink in size at runtime.
 
 ### Why dynamic array?
 
-- We may not know the size of the array at compile time
+- We may not know the size of the array at the time of array declaration
+- Elements can be added or removed at anytime
 
 ---
 
 ### Why dynamic array?
 
-- We may not know the size of the array at compile time
+- We may not know the size of the array at the time of array declaration
+- Elements can be added or removed at anytime
 - Then, why not linked list?
 
 ---
 
 ### Why dynamic array?
 
-- We may not know the size of the array at compile time
+- We may not know the size of the array at the time of array declaration
 - We need efficient random access
 
 ---
