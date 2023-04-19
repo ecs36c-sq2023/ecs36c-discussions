@@ -187,16 +187,42 @@ table {
 
 ### Improved Naive Approach (not a formal proof)
 
-Total time to insert $n$ elements into the dynamic array that is empty:
+Total time to append $n$ elements into the dynamic array that is empty:
 
 $$
 \begin{align*}
 T_n(n)
 &= n + \sum_{k=1}^{\frac{n}{4} - 1} 4k \\
-&= O(n) + 4 \sum_{k=1}^{\frac{n}{4} - 1} k \\
-&= O(n) + 4 \cdot \frac{\frac{n}{4} \cdot (\frac{n}{4} - 1)}{2} \\
-&= O(n) + \frac{n^2}{8} - \frac{n}{2} \\
+&= n + 4 \sum_{k=1}^{\frac{n}{4} - 1} k \\
+&= n + 4 \cdot \frac{\frac{n}{4} \cdot (\frac{n}{4} - 1)}{2} \\
+&= n + \frac{n^2}{8} - \frac{n}{2} \\
 &= O(n^2) \\
+\end{align*}
+$$
+
+Amortized time complexity for append:
+
+$$
+\begin{align*}
+T_1(n) &= \frac{1}{n} O(n^2) = O(n) \\
+\end{align*}
+$$
+
+---
+
+### Improved Naive Approach (not a formal proof)
+
+For any fixed $m > 0$, total time to append $n$ elements into the dynamic array
+that is empty:
+
+$$
+\begin{align*}
+T_n(n)
+&= n + \sum_{k=1}^{\frac{n}{m} - 1} 4k \\
+&= n + m \sum_{k=1}^{\frac{n}{m} - 1} k \\
+&= n + m \cdot \frac{\frac{n}{m} \cdot (\frac{n}{m} - 1)}{2} \\
+&= n + \frac{n^2}{2m} - \frac{n}{2}
+= O(n^2) \\
 \end{align*}
 $$
 
@@ -248,7 +274,7 @@ table {
 
 ### Time Complexity for Actual Approach (not a formal proof)
 
-Time for inserting $n$ elements into the dynamic array that is empty:
+Time for appending $n$ elements into the dynamic array that is empty:
 
 $$
 \begin{align*}
