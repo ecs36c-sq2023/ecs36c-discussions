@@ -280,12 +280,12 @@ $$
 \begin{align*}
 T_n(n)
 
-&= n + \sum_{k=1}^{\log_2 n - 1} 2^k \\
-&= n + 2 \sum_{k=1}^{\log_2 n - 1} 2^k \\
-&= n + 2 \cdot \frac{2^{\log_2 n} - 1}{2 - 1} \\
-&= n + 2 \cdot (n - 1) \\
-&= n + 2n - 2 \\
-&= O(n) \\
+&= n + \sum_{k=1}^{\log_2 n} 2^{k-1} \\
+&= n + \frac{1}{2} \sum_{k=1}^{\log_2 n} 2^{k} \\
+&= n + \frac{1}{2} \cdot \frac{2 (2^{\log_2 n} - 1)}{2 - 1} \\
+&= n + (2^{\log_2 n} - 1) \\
+&= n + (n - 1)
+= O(n) \\
 \end{align*}
 $$
 
