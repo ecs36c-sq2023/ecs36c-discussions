@@ -1,19 +1,38 @@
 # ECS 36C Spring 2023 Discussions
 
-some discussion files that are hard to write in powerpoint/slides.
+## Setup
+
+### Prerequisite
+
+- Node.js 18 (LTS)
+- pnpm v8+
+- VS Code with Marp Extension (recommended)
+
+### Install Project Dependencies
+
+```sh
+pnpm i
+```
 
 ## Run
 
-### compile to slides
+### Build All
 
 ```sh
-marp discussion.md
-marp discussion.md --pdf
-marp discussion.md --pptx
+pnpm build-pptx
+pnpm build-pdf
 ```
 
-or start a local server
+### Build One
 
 ```sh
-marp --server .
+pnpm marp discussion.md
+pnpm marp discussion.md --pdf
+pnpm marp discussion.md --pptx
+```
+
+### Start a local server
+
+```sh
+pnpm marp --server .
 ```
