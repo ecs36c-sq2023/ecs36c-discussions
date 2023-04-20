@@ -218,7 +218,7 @@ that is empty:
 $$
 \begin{align*}
 T_n(n)
-&= n + \sum_{k=1}^{\frac{n}{m} - 1} 4k \\
+&= n + \sum_{k=1}^{\frac{n}{m} - 1} mk \\
 &= n + m \sum_{k=1}^{\frac{n}{m} - 1} k \\
 &= n + m \cdot \frac{\frac{n}{m} \cdot (\frac{n}{m} - 1)}{2} \\
 &= n + \frac{n^2}{2m} - \frac{n}{2}
