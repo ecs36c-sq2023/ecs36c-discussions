@@ -19,6 +19,7 @@ pnpm i
 ### Build All
 
 ```sh
+pnpm build
 pnpm build-pptx
 pnpm build-pdf
 ```
