@@ -308,9 +308,9 @@ Let $A, B, C$ be types, then $(A, B)$ is a pair of type $A$ **and** $B$.
 
 ![w:400px](./image/disc4/AxB.png)
 
-Since $(A, B)$ is just another notation for $A \times B$,
+$(A, B)$ is just another notation for $A \times B$,
 which is the [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) of set $A$ and $B$.
-This type is also called a **product type**.
+So this type is also called a **product type**.
 
 ---
 

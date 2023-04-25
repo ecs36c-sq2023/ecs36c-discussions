@@ -1,0 +1,50 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{center}
+\begin{tikzpicture}[transform canvas={scale=2.0}]
+  \node (c) {$C$};
+  \node (ab) [below=2 of c] {$(A, B)$};
+  \node (a) [left=of ab] {$A$};
+  \node (b) [right=of ab] {$B$};
+  \draw[->] (c) to node [sloped, above] {$g$} (b);
+  \draw[<-] (a) to node [sloped, above] {$f$} (c);
+  \draw[->, dashed] (c) to node {$(f,g)$} (ab);
+  \draw[->] (ab) to node [below] {$fst$} (a);
+  \draw[->] (ab) to node [below] {$snd$} (b);
+\end{tikzpicture}
+\end{center}
+
+\vspace{10cm}
+
+\begin{center}
+\begin{tikzpicture}[transform canvas={scale=2.0}]
+  \node (c) {$Void$};
+  \node (ab) [below=2 of c] {$(TKey, TValue)$};
+  \node (a) [left=of ab] {$TKey$};
+  \node (b) [right=of ab] {$TValue$};
+  \draw[->] (c) to node [sloped, above] {$TValue()$} (b);
+  \draw[<-] (a) to node [sloped, above] {$TKey()$} (c);
+  \draw[->, dashed] (c) to node {$make\_pair$} (ab);
+  \draw[->] (ab) to node [below] {$fst$} (a);
+  \draw[->] (ab) to node [below] {$snd$} (b);
+\end{tikzpicture}
+\end{center}
+
+\end{document}
