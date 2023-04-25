@@ -9,7 +9,7 @@ math: mathjax
 
 - Higher-Order Functions
 - Lambda Expressions
-- Tuple / Pair
+- Pair
 
 ---
 
@@ -294,6 +294,97 @@ int main() {
 
 ---
 
-# Tuple
+# Pair
 
-todo
+two heterogeneous objects as a single unit
+
+a tuple with only 2 elements
+
+---
+
+## Defining A Pair
+
+Let $A, B, C$ be types, then $(A, B)$ is a pair of type $A$ **and** $B$.
+
+![w:400px](./image/disc4/AxB.png)
+
+Since $(A, B)$ is just another notation for $A \times B$,
+which is the [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) of set $A$ and $B$.
+This type is also called a **product type**.
+
+---
+
+![](./image/disc4/TkeyxTValue.png)
+
+---
+
+Suppose we have a comparison function
+
+$$
+isDefault: A \rightarrow Bool
+$$
+
+what checks if a given value $a \in A$ is a default value of type $A$.
+
+How should we get
+
+$$
+isDefault_{pair}: (TKey, TValue) \rightarrow Bool
+$$
+
+---
+
+recall
+
+$$
+fst: (A, B) \rightarrow A
+$$
+
+so
+
+$$
+\begin{aligned}
+& isDefault_{pair}: (TKey, TValue) \rightarrow Bool \\
+& isDefault_{pair} = isDefault \circ fst
+\end{aligned}
+$$
+
+---
+
+### Pair in C++
+
+```cpp
+template<class _T1, class _T2>
+struct pair {
+  _T1 first;                 // first is a copy of the first object
+  _T2 second;                // second is a copy of the second object
+
+  pair() : first(), second() { }
+  pair(const _T1& __a, const _T2& __b) : first(__a), second(__b) { }
+
+  inline pair<_T1, _T2> make_pair(_T1 __x, _T2 __y){
+    return pair<_T1, _T2>(__x, __y);
+  }
+}
+
+```
+
+---
+
+## Comparing the key in C++
+
+```cpp
+bool cmp(int a, int b) { return a < b; }
+
+template <typename T>
+bool cmp_pair(std::pair<int, T> a, std::pair<int, T> b) {
+  return a.first < b.first;
+}
+
+int main() {
+  std::pair<int, std::string> p1(1, "hello");
+  std::pair<int, std::string> p2(2, "world");
+  std::cout << cmp_pair(p1, p2) << std::endl;
+  return 0;
+}
+```
