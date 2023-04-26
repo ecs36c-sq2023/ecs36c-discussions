@@ -314,6 +314,10 @@ So this type is also called a **product type**.
 
 ---
 
+![w:1000](image/disc4/venn.png)
+
+---
+
 ![](./image/disc4/TkeyxTValue.png)
 
 ---
