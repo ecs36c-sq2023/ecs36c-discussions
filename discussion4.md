@@ -314,6 +314,10 @@ So this type is also called a **product type**.
 
 ---
 
+![w:1000](https://www.howtogeek.com/wp-content/uploads/2022/01/GoogleSlidesVennDiagram.png?height=200p&trim=2,2,2,2&crop=16:9)
+
+---
+
 ![](./image/disc4/TkeyxTValue.png)
 
 ---
