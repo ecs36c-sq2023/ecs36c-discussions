@@ -115,12 +115,61 @@ keep the tree at optimal shape
   - stricter
 - **Red-Black Tree**
   - Color properties
-- Splay Tree
-  - re-order nodes up on access
-- ...
+
+---
+
+## AVL Tree
+
+make sure the tree is balanced using _balance factor_:
+
+$$
+BF(node) = height(node.right) - height(node.left)
+$$
+
+where the tree is balanced **if and only if** $|BF(root)| \leq 1$.
+
+$$
+BF_{AVL} : TreeNode \rightarrow \{-1, 0, 1 \}
+$$
+
+So when insert
+
+1. BST insert
+2. update height for each node
+3. rotate (in **4** different ways)
+4. update height for rotated nodes
+
+---
+
+## Increased Insertion Time
+
+$height \in O(h)$, calling it on each node would be costly.
+
+**what if**
+
+$$
+relaxed\_balance : \{-1, 0, 1\} \rightarrow \{R, B\}
+$$
 
 ---
 
 ## Red-Black Tree
 
-todo
+the tree is "balanced" if it satisfies the [RB-Tree properties](https://github.com/ecs36c-sq2023/hw2/blob/df5666fe27a7f1eb90e7c92ab75fa3c629fe4173/lib/BinaryTreeNode.hpp#L50).
+
+when insert
+
+- BST insert
+- rotate / fix_violation (in **2** ways)
+  - color of node is updated during _rotate time_.
+
+---
+
+|                     | AVL Tree    | RB Tree      |
+| :------------------ | :---------- | :----------- |
+| Balancing Criterion | strictly    | roughly      |
+| search time         | $O(\log n)$ | ~$O(\log n)$ |
+| need for rotation   | frequent    | few          |
+| usage               | search only | general      |
+
+RB Tree $\rightarrow$ ordered set, ordered map.
