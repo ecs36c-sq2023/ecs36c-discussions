@@ -9,7 +9,7 @@ math: mathjax
 
 - Binary Search Tree
 - Balanced BST
-- Asides...
+- Trait
 
 ---
 
@@ -173,3 +173,115 @@ when insert
 | usage               | search only | general      |
 
 RB Tree $\rightarrow$ ordered set, ordered map.
+
+---
+
+## Unordered Set and Unordered Map?
+
+---
+
+## Can we ensure the Tree is balanced at compile time?
+
+1. [Analysis Pass on compiler](https://llvm.org/docs/Passes.html)
+2. [Dependent Type](https://www.cs.princeton.edu/~appel/papers/redblack.pdf)
+
+---
+
+# Ad-hoc Polymorphism
+
+polymorphism with limitation on Type Variable
+
+---
+
+## Recall From HW2
+
+```cpp
+template <typename T>
+class TreeSet {
+private:
+  BinaryTreeNode<T> *_root;
+  std::function<int(T, T)> _comparator;
+  size_t _size;
+
+public:
+  TreeSet(std::function<int(T, T)> comparator);
+}
+```
+
+why do we need this `comparator`?
+
+---
+
+For `T a` and `T b`, we need to tell which of them is smaller.
+
+In other words, we require type $T$ to have [total order](https://en.wikipedia.org/wiki/Total_order).
+For any ordered $T$, denoted by $Ord\ T$,
+
+$$
+\begin{aligned}
+<  &: (T, T) \rightarrow Bool \\
+== &: (T, T) \rightarrow Bool
+\end{aligned}
+$$
+
+should be defined.
+
+---
+
+## An Ideal Class Definition for HW2
+
+```cpp
+template <typename Ord T>
+class TreeSet {
+private:
+  BinaryTreeNode<T> *_root;
+  size_t _size;
+
+public:
+  TreeSet();
+}
+```
+
+where `_comparator` is specified in type `T`.
+
+---
+
+## Properties shared by Types
+
+- `class`: defines shared properties between objects / values
+- what should we call the shared properties between types?
+  - traits (rust, scala, c++, ...)
+  - function overloading (c++, java, ...)
+  - containers (c++)
+  - typeclass (haskell)
+  - modular (ocaml)
+
+---
+
+## Extending Existing Traits
+
+If we already have a trait `Eq` for equivalence relations,
+we can say trait `Ord` extends `Eq` with `<`.
+In other words, `Ord` "inherits" `==` from `Eq`.
+
+---
+
+## Why Trait?
+
+- "checked" polymorphism
+  - template in C++ uses "unchecked" type variables, which is
+    - harder to debug
+    - harder to analysis
+- composition
+  - we can require a type to be ordered `Ord` and numeric `Num` at the same time
+- automatic deriving functions
+  - for `Eq` with `==`, we should also have a `!=`
+  - for `Ord` with `<`, we should have `>, >=, <=`, and `max, min`
+  - with some function required, other functions can be derived in scope of the trait!
+  - in fact, some languages even allow use to derive trait directly
+
+---
+
+## Iterable Tree?
+
+We know a list (vector) is `Iterable`, can we derive `Iterable` for a Tree?
