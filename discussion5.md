@@ -208,7 +208,7 @@ public:
 }
 ```
 
-why do we need this `comparator`?
+why do we need this `_comparator`?
 
 ---
 
@@ -252,7 +252,7 @@ where `_comparator` is specified in type `T`.
 - what should we call the shared properties between types?
   - traits (rust, scala, c++, ...)
   - function overloading (c++, java, ...)
-  - containers (c++)
+  - abstract class (c++, java, ...)
   - typeclass (haskell)
   - modular (ocaml)
 
