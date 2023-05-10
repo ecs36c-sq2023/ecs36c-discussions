@@ -100,6 +100,8 @@ For a binary search tree, in-order traversal gives you a sorted sequence.
 2. Set new node's color to Red. (Why?)
 3. Fix up. (Which rule could be violated?)
 
+---
+
 ### Insertion Fix up
 
 3 pairs of cases:
