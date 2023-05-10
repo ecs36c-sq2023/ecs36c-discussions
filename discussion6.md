@@ -20,7 +20,7 @@ Henry Yu
 
 - Pre-order
 - In-order
-- Postorder
+- Post-order
 
 ---
 
@@ -52,6 +52,12 @@ Post-order: 2, 5, 11, 6, 7, 5, 9, 9, 1
 
 ## Tree Traversal
 
+Which traversal should we use if we want to delete all nodes in the tree?
+
+---
+
+## Tree Traversal
+
 ![width:384px](./image/disc6/Binary_search_tree.svg.png)
 
 For a binary search tree, in-order traversal gives you a sorted sequence.
@@ -75,7 +81,7 @@ For a binary search tree, in-order traversal gives you a sorted sequence.
 1. Each node is either red or black
 2. Root is black
 3. Each Leaf is black
-4. Each red node has only black chilren
+4. Each red node has only black children
 5. For each node, all simple paths from the node to descendent leaves contain
    the same number of black nodes.
 
@@ -88,8 +94,16 @@ For a binary search tree, in-order traversal gives you a sorted sequence.
 
 ---
 
-### Insertion Fix-up
+### Insertion
 
 1. Insert as regular binary search tree.
 2. Set new node's color to Red. (Why?)
 3. Fix up. (Which rule could be violated?)
+
+### Insertion Fix up
+
+3 pairs of cases:
+
+1. Parent and Uncle Red
+2. Parent Red, Uncle Black, Left Child
+3. Parent Red, Uncle Black, Right Child
