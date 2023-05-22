@@ -51,17 +51,21 @@ _Demo_
 
 ## Radix Sort
 
-Time Complexity: $O(nw)$ where 
+Time Complexity: $O(nw)$ where
 
 - $n$ is the number of keys
 - $w$ is the key length
+
+---
 
 ## Bucket Sort
 
 _Demo_
 
+---
+
 ## Bucket Sort
 
 The number of buckets must be proportional to the number of elements.
 
-Time Complexity: $O(n)$ when data uniformly distributed
+Time Complexity: $O(n)$ when data is uniformly distributed
