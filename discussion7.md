@@ -13,6 +13,7 @@ Henry Yu
 
 - Review of Quick Sort and Merge Sort
 - Radix Sort
+- Bucket Sort
 
 ---
 
@@ -54,3 +55,13 @@ Time Complexity: $O(nw)$ where
 
 - $n$ is the number of keys
 - $w$ is the key length
+
+## Bucket Sort
+
+_Demo_
+
+## Bucket Sort
+
+The number of buckets must be proportional to the number of elements.
+
+Time Complexity: $O(n)$ when data uniformly distributed
