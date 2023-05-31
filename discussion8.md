@@ -159,6 +159,90 @@ StopIteration
 
 ---
 
+## Iterable Type
+
+_Defn_
+Any Type `T` is an Iterable Type if it implements `iter()` which return an **iterator** of type `T`.
+
+Then, what is the difference between
+a list-like type (`std::vector`, `std::list`, ...) and an iterable type?
+
+---
+
+## Lazy Evaluation
+
+An Iterator implements `next()` of the current iterator,
+which can be computed at runtime.
+
+Recall Fibonacci numbers:
+
+$$
+\begin{aligned}
+& F_0 = 0, F_1 = 1 \\
+& F_n = F_{n-1} + F_{n-2}
+\end{aligned}
+$$
+
+---
+
+### Lazy Fibonacci in Python
+
+```py
+class Fibonacci:
+    def __init__(self):
+        self.cache = [0, 1]
+        self.idx = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.idx < len(self.cache):
+            res = self.cache[self.idx]
+        else:
+            res = self.cache[-1] + self.cache[-2]
+            self.cache.append(res)
+        self.idx += 1
+        return res
+```
+
+---
+
+### What if the List type is lazy be default?
+
+---
+
+### Lazy Fibonacci in Haskell
+
+```hs
+-- (!!) :: [a] -> Int -> a
+-- index operator
+fib :: Int -> Int
+fib n = fibs' !! n
+
+fibs' :: [Int]
+fibs' = 0 : 1 : next fibs
+  where
+    next (a : t@(b : _)) = (a + b) : next t
+```
+
+---
+
+### Cont.
+
+when the programmer is lazy
+
+```hs
+fib :: [Int]
+fib = 0 : 1 : zipWith (+) fibs (tail fibs)
+```
+
+---
+
+## Other example of Lazy Evaluation?
+
+---
+
 # Ad-hoc Polymorphism
 
 polymorphism with limitation on Type Variable
