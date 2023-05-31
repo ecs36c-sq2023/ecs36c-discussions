@@ -243,6 +243,35 @@ fib = 0 : 1 : zipWith (+) fibs (tail fibs)
 
 ---
 
+### `take()`
+
+`take()` creates an iterator that contains the first n elements of the current iterator.
+
+```hs
+take :: Int -> [a] -> [a]
+```
+
+as in Rust
+
+```rs
+for i in (0..10).take(5) {
+    println!("{}", i);
+}
+```
+
+---
+
+### `take()` Cont.
+
+taking from infinite list
+
+```hs
+ghci> take 3 [5..]
+[5,6,7]
+```
+
+---
+
 # Ord
 
 Type with order, so they are comparable
