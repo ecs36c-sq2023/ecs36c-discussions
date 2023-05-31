@@ -177,7 +177,7 @@ private:
 
 public:
   TreeSet(std::function<int(T, T)> comparator);
-}
+};
 ```
 
 why do we need this `_comparator`?
