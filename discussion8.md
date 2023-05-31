@@ -233,8 +233,8 @@ fibs' = 0 : 1 : next fibs
 when the programmer is lazy
 
 ```hs
-fib :: [Int]
-fib = 0 : 1 : zipWith (+) fibs (tail fibs)
+fibs :: [Int]
+fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
 ```
 
 ---
