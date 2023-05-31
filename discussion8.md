@@ -243,9 +243,9 @@ fib = 0 : 1 : zipWith (+) fibs (tail fibs)
 
 ---
 
-# Ad-hoc Polymorphism
+# Ord
 
-polymorphism with limitation on Type Variable
+Type with order, so they are comparable
 
 ---
 
@@ -351,6 +351,12 @@ where `_comparator` is specified in type `T`.
 
 ---
 
+# Ad-hoc Polymorphism
+
+polymorphism with limitation on Type Variable
+
+---
+
 ## "checked" Polymorphism
 
 When developing libraries or products,
@@ -402,4 +408,14 @@ In other words, `Ord` "inherits" `==` from `Eq`.
 
 ## Iterable Tree?
 
-We know a list (vector) is `Iterable`, can we derive `Iterable` for a Tree?
+We know a list (vector) is `Iterable`, can we define
+[`Iterable` Tree](https://www.seas.upenn.edu/~cis5520/21fa/lectures/stub/02-trees/TreeFolds.html)?
+
+---
+
+# Additional Materials
+
+- [type_traits in C++](https://en.cppreference.com/w/cpp/header/type_traits)
+- [Foldable Typeclass](https://serokell.io/blog/whats-that-typeclass-foldable)
+- [Lazy C++](https://livebook.manning.com/book/functional-programming-in-c-plus-plus/chapter-6/50)
+- [Implementing Trait in C (ECS153 hw0)](https://github.com/ecs36c-sq2023/ECS153-hw0)
