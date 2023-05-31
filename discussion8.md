@@ -184,6 +184,51 @@ why do we need this `_comparator`?
 
 ---
 
+## In HW4
+
+```cpp
+template <typename T> class Graph {
+private:
+    std::map<T, std::set<T>> _adjList;
+
+public:
+    Graph() = default;
+};
+
+```
+
+Is this class definition complete?
+
+---
+
+## `Graph<T>` with self-defined datatype
+
+```cpp
+typedef struct {
+    float x;
+    float y;
+} Point;
+
+TEST(GraphTest, TestPointType)
+{
+    Graph<Point> g;
+    g.addVertex({ 1.0, 2.0 });
+    g.addVertex({ 3.0, 4.0 });
+    g.addEdge({ 1.0, 2.0 }, { 3.0, 4.0 });
+    ASSERT_EQ(g.size(), 2);
+    ASSERT_TRUE(g.hasEdge({ 1.0, 2.0 }, { 3.0, 4.0 }));
+    ASSERT_FALSE(g.hasEdge({ 3.0, 4.0 }, { 1.0, 2.0 }));
+}
+```
+
+---
+
+## Breaking HW4!
+
+![break hw4](image/disc8/breaking_hw4.png)
+
+---
+
 For `T a` and `T b`, we need to tell which of them is smaller.
 
 In other words, we require type $T$ to have [total order](https://en.wikipedia.org/wiki/Total_order).
@@ -215,6 +260,23 @@ public:
 ```
 
 where `_comparator` is specified in type `T`.
+
+---
+
+## Modify HW4?
+
+---
+
+## "checked" Polymorphism
+
+When developing libraries or products,
+we cannot trust the user for using it as excepted.
+Therefore, bring the error to us as the developer is necessary.
+
+Newer (some actually older than C++) languages
+(Rust, for example) ship this feature with their standard prelude.
+
+### Any other than Rust?
 
 ---
 
