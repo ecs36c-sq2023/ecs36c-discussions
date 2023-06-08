@@ -141,11 +141,18 @@ What are the properties of a Binary Search Tree?
 
 ---
 
+### Operations
+
+- Sift up
+- Sift down
+
+---
+
 ### Time Complexity
 
 - Insertion
 - Pop
-- Heapify
+- Heapify an array
 - Search
 
 ---
@@ -154,7 +161,7 @@ What are the properties of a Binary Search Tree?
 
 - Insertion: $O(\log n)$
 - Pop: $O(\log n)$
-- Heapify: $O(n)$
+- Heapify an array: $O(n)$
 - Search: $O(n)$
 
 ---
