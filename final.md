@@ -126,6 +126,37 @@ What are the properties of a Binary Search Tree?
 
 ---
 
+## Heaps
+
+- Why Heap?
+- What are the properties of a Heap?
+
+---
+
+### Properties of Heaps
+
+- Complete Binary Tree
+- Min Heap: parent is smaller than children
+- Max Heap: parent is larger than children
+
+---
+
+### Time Complexity
+
+- Insertion
+- Pop
+- Heapify
+- Search
+
+### Time Complexity
+
+- Insertion: $O(\log n)$
+- Pop: $O(\log n)$
+- Heapify: $O(n)$
+- Search: $O(n)$
+
+---
+
 ## B-Trees
 
 - Why B-Tree?
