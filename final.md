@@ -3,11 +3,20 @@ marp: true
 math: mathjax
 ---
 
+# ECS 36C Final Review
+
+Henry Yu, Ethan He
+
+---
+
 # Before we start
 
-- hw4 is due June 15th, 11:59 p.m.
-- office hours in final week
-  - see Canvas Announcement
+- HW4 is due June 15th, 11:59 p.m.
+- Office Hours in Final Exam Week
+  - Friday 9th 4pm - 5pm in Kemper (Regular Time and Location) (Ethan)
+  - Monday 12th 12pm - 1pm in Kemper (Regular Time and Location) (Henry)
+  - Monday 12th 4pm - 5pm in Watershed Science Research Center CS Conference
+    Room (2nd Floor) (Ethan and/or Henry)
 
 ---
 
@@ -15,29 +24,106 @@ math: mathjax
 
 ## Topics
 
-- Lists
 - Trees
-- Sorting
+- Sorting Algorithms
 - Graphs
-
----
-
-# Lists
-
-todo
 
 ---
 
 # Trees
 
-- BST
-- Red-Black Tree
-- Min/Max Heap
-- B-Tree
+- Binary Trees
+- Binary Search Trees
+- Red-Black Trees
+- Heaps
+- B-Trees
 
 ---
 
-## B-Tree
+## Binary Trees
+
+- Representation
+  - Nodes and references
+  - Array (for complete binary trees)
+
+---
+
+## Binary Trees
+
+- Representation
+  - Nodes and references
+  - Array
+- Traversal
+
+---
+
+## Binary Trees
+
+- Representation
+  - Nodes and references
+  - Array
+- Traversal
+  - Pre-order
+  - In-order
+  - Post-order
+
+---
+
+## Binary Search Trees
+
+What are the properties of a Binary Search Tree?
+
+---
+
+### Properties of Binary Search Trees
+
+What are the properties of a Binary Search Tree?
+
+- Left subtree contains only nodes with keys less than the node's key
+- Right subtree contains only nodes with keys greater than the node's key
+- Left and right subtree must also be binary search trees
+
+---
+
+## Red Black Trees
+
+- Why Red Black Tree?
+
+- What are the properties of a Red Black Tree?
+
+---
+
+### Properties of Red Black Trees
+
+1. Each node is either red or black
+2. Root is black
+3. Each Leaf is black
+4. Each red node has only black children
+5. For each node, all simple paths from the node to descendent leaves contain
+   the same number of black nodes.
+
+### Time Complexity
+
+- Search
+- Insertion
+- Deletion
+
+### Time Complexity
+
+- Search: $O(\log n)$
+- Insertion: $O(\log n)$
+- Deletion: $O(\log n)$
+
+---
+
+## B-Trees
+
+- Why B-Tree?
+- What are the properties of a B-Tree?
+
+---
+
+## B-Trees
 
 _Properties_
 
@@ -61,6 +147,36 @@ suppose $t = 2$,
 
 ![B-Tree Example w:600](image/final/BTree.png)
 
+- Representation
+
+---
+
+### Properties of B-Trees
+
+Branching factor $t$.
+
+- All leaves appear in the same level.
+- Each node has at most $2t - 1$ keys.
+- Each node has at least $t - 1$ keys.
+- Each node has at most $2t$ children.
+- Each node has at least $t$ children.
+
+---
+
+### Time Complexity
+
+- Search
+- Insertion
+- Deletion
+
+---
+
+### Time Complexity
+
+- Search: $O(\log n)$
+- Insertion: $O(\log n)$
+- Deletion: $O(\log n)$
+
 ---
 
 # Sorting
@@ -81,11 +197,10 @@ suppose $t = 2$,
 
 ## Definitions
 
-Let $G = (V, E)$ denote a graph,
-where $V$ is the set of vertices and $E$ is the set of edges.
+Let $G = (V, E)$ denote a graph, where $V$ is the set of vertices and $E$ is the
+set of edges.
 
-**Defn**
-$G$ is _sparse_ if $|E| << |V|^2$.
+**Defn** $G$ is _sparse_ if $|E| << |V|^2$.
 
 _dense_?
 
@@ -93,19 +208,15 @@ _dense_?
 
 ## Definitions
 
-Let $G = (V, E)$ denote a graph,
-where $V$ is the set of vertices and $E$ is the set of edges.
+Let $G = (V, E)$ denote a graph, where $V$ is the set of vertices and $E$ is the
+set of edges.
 
-**Defn**
-$G$ is _sparse_ if $|E| << |V|^2$.
+**Defn** $G$ is _sparse_ if $|E| << |V|^2$.
 
-**Defn**
-$G$ is _dense_ if $|E| \approx |V|^2$.
+**Defn** $G$ is _dense_ if $|E| \approx |V|^2$.
 
-**Defn**
-$G$ is connected if for all $v \in V$,
-there is $(v, \_) \in E$.
-There is a path from any vertex to any other vertex.
+**Defn** $G$ is connected if for all $v \in V$, there is $(v, \_) \in E$. There
+is a path from any vertex to any other vertex.
 
 ---
 
@@ -188,12 +299,10 @@ DFS: topological sort
 
 # Minimum Spanning Tree
 
-Let graph $G = (V, E)$ be weighted.
-That is, for all $e \in E$,
-there is $w_e \in \mathbb{R}$.
+Let graph $G = (V, E)$ be weighted. That is, for all $e \in E$, there is
+$w_e \in \mathbb{R}$.
 
-We want to find a subset $T \subseteq E$
-such that,
+We want to find a subset $T \subseteq E$ such that,
 
 $$
 \min \quad \sum_{e \in T} w_e
@@ -201,7 +310,8 @@ $$
 
 subject to
 
-1. each $v \in V$ is connected to at least some edge $(\_, v)$ or $(v, \_) \in T$.
+1. each $v \in V$ is connected to at least some edge $(\_, v)$ or
+   $(v, \_) \in T$.
 2. $T$ is connected and acyclic, $|T| = |V| - 1$.
 
 ---
