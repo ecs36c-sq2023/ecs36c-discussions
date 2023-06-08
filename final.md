@@ -148,6 +148,8 @@ What are the properties of a Binary Search Tree?
 - Heapify
 - Search
 
+---
+
 ### Time Complexity
 
 - Insertion: $O(\log n)$
@@ -208,10 +210,32 @@ suppose $t = 2$,
 
 # Sorting
 
-- Insertion Sort
-- Selection Sort
 - Merge Sort
 - Quick Sort
+- Insertion Sort
+- Selection Sort
+
+---
+
+### Comparison
+
+|                   | Quick Sort | Merge Sort | Insertion Sort | Selection Sort |
+| ----------------- | ---------- | ---------- | -------------- | -------------- |
+| Time Complexity   |            |            |                |                |
+| Space Requirement |            |            |                |                |
+| Stability         |            |            |                |                |
+
+---
+
+### Comparison
+
+|                  | Quick Sort      | Merge Sort    | Insertion Sort | Selection Sort |
+| ---------------- | --------------- | ------------- | -------------- | -------------- |
+| Time Complexity  | $O(n \log n)$\* | $O(n \log n)$ | $O(n^2)$       | $O(n^2)$       |
+| Space Complexity | $O(\log n)$     | $O(n)$        | $O(1)$         | $O(1)$         |
+| Stability        | Unstable        | Stable        | Stable         | Unstable       |
+
+\*average case, worst case $O(n^2)$
 
 ---
 
