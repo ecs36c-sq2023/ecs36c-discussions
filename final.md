@@ -7,10 +7,7 @@ math: mathjax
 
 - hw4 is due June 15th, 11:59 p.m.
 - office hours in final week
-  - Ethan (Watershed 2nd Floor Conference Room)
-    - Friday June 9th, 4:00 - 5:00 pm
-  - Henry
-    - todo
+  - see Canvas Announcement
 
 ---
 
