@@ -42,7 +42,27 @@ todo
 
 ## B-Tree
 
-todo
+_Properties_
+
+- if there is $n$ keys in the node, there is $n+1$ children
+- keys and children are sorted
+- All leaves have the same depth, which is the tree’s height $h$.
+- a B-tree has a _minimum degree_ $t$, where $t-1 \leq n \leq 2t-1$
+  - if $t = 2$, then $1 \leq n \leq 3$
+
+---
+
+### B-Tree Insertion
+
+![B-Tree Insert](image/final/BTree-Insert.png)
+
+---
+
+### B-Tree Example
+
+suppose $t = 2$,
+
+![B-Tree Example w:600](image/final/BTree.png)
 
 ---
 
