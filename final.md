@@ -43,6 +43,12 @@ Henry Yu, Ethan He
 ## Binary Trees
 
 - Representation
+
+---
+
+## Binary Trees
+
+- Representation
   - Nodes and references
   - Array (for complete binary trees)
 
@@ -52,7 +58,7 @@ Henry Yu, Ethan He
 
 - Representation
   - Nodes and references
-  - Array
+  - Array (for complete binary trees)
 - Traversal
 
 ---
@@ -61,7 +67,7 @@ Henry Yu, Ethan He
 
 - Representation
   - Nodes and references
-  - Array
+  - Array (for complete binary trees)
 - Traversal
   - Pre-order
   - In-order
@@ -102,11 +108,15 @@ What are the properties of a Binary Search Tree?
 5. For each node, all simple paths from the node to descendent leaves contain
    the same number of black nodes.
 
+---
+
 ### Time Complexity
 
 - Search
 - Insertion
 - Deletion
+
+---
 
 ### Time Complexity
 
@@ -123,15 +133,15 @@ What are the properties of a Binary Search Tree?
 
 ---
 
-## B-Trees
+### Properties of B-Trees
 
-_Properties_
+If a B-tree has a _minimum degree_ $t$:
 
-- if there is $n$ keys in the node, there is $n+1$ children
-- keys and children are sorted
-- All leaves have the same depth, which is the tree’s height $h$.
-- a B-tree has a _minimum degree_ $t$, where $t-1 \leq n \leq 2t-1$
-  - if $t = 2$, then $1 \leq n \leq 3$
+- Keys and children are sorted.
+- All leaves appear in the same level.
+- Each node has at most $2t - 1$ keys.
+- Each node has at least $t - 1$ keys.
+- If there is $n$ keys in the node, there is $n+1$ children.
 
 ---
 
@@ -146,20 +156,6 @@ _Properties_
 suppose $t = 2$,
 
 ![B-Tree Example w:600](image/final/BTree.png)
-
-- Representation
-
----
-
-### Properties of B-Trees
-
-Branching factor $t$.
-
-- All leaves appear in the same level.
-- Each node has at most $2t - 1$ keys.
-- Each node has at least $t - 1$ keys.
-- Each node has at most $2t$ children.
-- Each node has at least $t$ children.
 
 ---
 
